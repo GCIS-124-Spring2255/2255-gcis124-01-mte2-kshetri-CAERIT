@@ -25,6 +25,7 @@ public class PlayingCard implements Comparable<PlayingCard> {
     @Override
     public int compareTo(PlayingCard other){
     int diff = this.getSuit().compareTo(other.getSuit());
+    
     if (diff!=0){return diff;}
     else{
         diff = this.getRank().getRankNumber()-other.getRank().getRankNumber();
@@ -35,17 +36,17 @@ public class PlayingCard implements Comparable<PlayingCard> {
 
     public static void main(String[] args) {
         
-        // java.util.List<PlayingCard> cards = new java.util.LinkedList<>();
-        // cards.add(new PlayingCard(Suit.HEARTS, Rank.FIVE));
-        // cards.add(new PlayingCard(Suit.SPADES, Rank.TEN));
-        // cards.add(new PlayingCard(Suit.CLUBS, Rank.QUEEN));
+        java.util.List<PlayingCard> cards = new java.util.LinkedList<>();
+        cards.add(new PlayingCard(Suit.HEARTS, Rank.FIVE));
+        cards.add(new PlayingCard(Suit.SPADES, Rank.TEN));
+        cards.add(new PlayingCard(Suit.CLUBS, Rank.QUEEN));
         
-        // cards.add(new PlayingCard(Suit.DIAMONDS, Rank.TWO));
-        // cards.add(new PlayingCard(Suit.HEARTS, Rank.ACE));
-        // cards.add(new PlayingCard(Suit.SPADES, Rank.FOUR));
-        // cards.add(new PlayingCard(Suit.CLUBS, Rank.KING));
+        cards.add(new PlayingCard(Suit.DIAMONDS, Rank.TWO));
+        cards.add(new PlayingCard(Suit.HEARTS, Rank.ACE));
+        cards.add(new PlayingCard(Suit.CLUBS, Rank.KING));
+        cards.add(new PlayingCard(Suit.SPADES, Rank.FOUR));
 
-        // java.util.Collections.sort(cards);
-        // System.out.println(cards);
+        java.util.Collections.sort(cards);
+        System.out.println(cards);
     }
 }
