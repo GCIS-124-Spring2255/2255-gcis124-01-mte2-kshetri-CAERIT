@@ -4,26 +4,51 @@
 
 package mte2.deques;
 
-// import java.util.LinkedList;
-// import java.util.Iterator;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
-public class MyDeque {
-// public class MyDeque<E> implements Deque<E> {
+public class MyDeque<E> implements Deque<E> {
     
-    // private final LinkedList<E> list;
-    // public MyDeque() {    list = new LinkedList<>();    }
+    private final LinkedList<E> list;
+    public MyDeque() {    list = new LinkedList<>();    }
 
-    // ... for enqueueFront ...
+    public void enqueueFront(E element){
+        list.addFirst(element);
+    }
 
-    // ... for enqueueBack ...
+    public void enqueueBack(E element){
+        list.addLast(element);
+    }
 
-    // ... for dequeueFront ...
+    public E dequeueFront(){
+        return list.removeFirst();
+    }
 
-    // ... for dequeueBack ... 
+    public E dequeueBack(){
+        return list.removeLast();
+    } 
 
-    // ... for size ...
+    public int size(){
+        return list.size();
+    }
 
-    // ... for iterator ...
+    @Override
+    public Iterator<E> iterator() throws UnsupportedOperationException{
+        return new DequeIterator();
+    }
+
+    private class DequeIterator implements Iterator<E>{
+        public int index=0;
+        public boolean hasNext(){
+            return index<list.size();
+        }
+        public E next(){
+            if(!hasNext()){throw new NoSuchElementException("out of elements");}
+            else{return list.get(index);}
+        }
+
+    }
 
 
     public static void main(String[] args) { 
